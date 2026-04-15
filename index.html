@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Men's Corner — Reclaim Your Masculinity</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0a0908;
+  --surface:#111009;
+  --card:#141210;
+  --border:#222018;
+  --border-light:#2e2a22;
+  --gold:#c8a84b;
+  --gold-dim:#7a6428;
+  --gold-glow:rgba(200,168,75,0.12);
+  --cream:#ede8dc;
+  --muted:#6b6355;
+  --muted2:#4a4438;
+  --red:#b84040;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-cond:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── TICKER ── */
+.ticker{background:var(--gold);color:#0a0908;font-family:var(--font-cond);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.45rem 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:ticker 30s linear infinite}
+.ticker-inner span{margin:0 3rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── MASTHEAD ── */
+.masthead{border-bottom:1px solid var(--border-light);padding:0 2rem}
+.masthead-top{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.masthead-date{font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase}
+.masthead-logo{text-align:center}
+.masthead-logo h1{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.8rem);font-weight:900;letter-spacing:0.05em;text-transform:uppercase;color:var(--cream);line-height:1}
+.masthead-logo p{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-top:0.3rem}
+.masthead-actions{display:flex;gap:1rem;align-items:center}
+.btn-sub{background:var(--gold);color:#0a0908;font-family:var(--font-cond);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.5rem 1.2rem;border:none;cursor:pointer;transition:background .2s}
+.btn-sub:hover{background:#e0bf60}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:var(--font-cond);font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:0.9rem 1.2rem;border-right:1px solid var(--border);white-space:nowrap;transition:color .2s,background .2s;display:block}
+.nav a:first-child{border-left:1px solid var(--border)}
+.nav a:hover,.nav a.active{color:var(--gold);background:var(--gold-glow)}
+
+/* ── LAYOUT WRAPPER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+
+/* ── HERO GRID ── */
+.hero-section{padding:2.5rem 0 0;border-bottom:1px solid var(--border)}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;grid-template-rows:auto auto;gap:1px;background:var(--border-light)}
+
+.hero-main{background:var(--card);position:relative;overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-main .img-wrap{position:absolute;inset:0;opacity:0.35}
+.hero-main .img-wrap img{object-position:top center}
+.hero-main::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0a0908 35%,transparent 75%);z-index:1}
+.hero-main .content{position:relative;z-index:2;padding:2rem}
+.hero-main .tag{font-family:var(--font-cond);font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);background:rgba(200,168,75,0.15);border:1px solid var(--gold-dim);padding:0.25rem 0.7rem;display:inline-block;margin-bottom:0.8rem}
+.hero-main h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;line-height:1.1;color:var(--cream);margin-bottom:0.75rem}
+.hero-main .excerpt{font-size:0.88rem;color:#9e9080;line-height:1.65;max-width:540px;margin-bottom:1.2rem}
+.hero-main .meta{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase}
+.hero-main .meta span{color:var(--gold);margin:0 0.4rem}
+
+.hero-side{background:var(--card);display:flex;flex-direction:column;gap:1px}
+.side-post{background:var(--card);padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);flex:1;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s;cursor:pointer}
+.side-post:last-child{border-bottom:none}
+.side-post:hover{background:#1a1712}
+.side-post .tag{font-family:var(--font-cond);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.5rem;display:block;transition:color .2s}
+.side-post:hover .tag{color:var(--gold)}
+.side-post h3{font-family:var(--font-display);font-size:1rem;font-weight:700;line-height:1.3;color:var(--cream);margin-bottom:0.5rem}
+.side-post .meta{font-family:var(--font-cond);font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase}
+
+/* ── SECTION LABEL ── */
+.section-label{display:flex;align-items:center;gap:1rem;padding:2.2rem 0 1.4rem}
+.section-label h2{font-family:var(--font-cond);font-size:0.72rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+
+/* ── POST GRID ── */
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);margin-bottom:1px}
+
+.post-card{background:var(--card);padding:1.6rem;transition:background .25s;cursor:pointer;position:relative;overflow:hidden}
+.post-card::before{content:'';position:absolute;left:0;top:0;width:2px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.post-card:hover{background:#161310}
+.post-card:hover::before{transform:scaleY(1)}
+.post-card .number{font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--border-light);position:absolute;top:0.5rem;right:1rem;line-height:1;transition:color .3s;user-select:none}
+.post-card:hover .number{color:#252018}
+.post-card .tag{font-family:var(--font-cond);font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.6rem;display:block;transition:color .2s}
+.post-card:hover .tag{color:var(--gold)}
+.post-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;line-height:1.3;color:var(--cream);margin-bottom:0.6rem}
+.post-card p{font-size:0.8rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.post-card .read-more{font-family:var(--font-cond);font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);transition:color .2s,letter-spacing .2s}
+.post-card:hover .read-more{color:var(--gold);letter-spacing:0.28em}
+
+/* ── CATEGORIES STRIP ── */
+.categories-section{padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:2.5rem 0}
+.cat-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:var(--border-light)}
+.cat-item{background:var(--card);padding:1.4rem 1rem;text-align:center;cursor:pointer;transition:background .25s}
+.cat-item:hover{background:#1c1810}
+.cat-item .icon{font-size:1.5rem;margin-bottom:0.6rem;display:block}
+.cat-item .name{font-family:var(--font-cond);font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);transition:color .2s;line-height:1.3}
+.cat-item:hover .name{color:var(--gold)}
+.cat-item .count{font-family:var(--font-cond);font-size:0.58rem;color:var(--muted2);margin-top:0.3rem;letter-spacing:0.1em}
+
+/* ── FEATURED QUOTE ── */
+.quote-section{background:var(--surface);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:4rem 2rem;text-align:center;margin-bottom:0}
+.quote-section blockquote{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);font-style:italic;font-weight:700;color:var(--cream);max-width:760px;margin:0 auto;line-height:1.35}
+.quote-section blockquote::before{content:'\201C';font-size:4rem;color:var(--gold);line-height:0;vertical-align:-1.2rem;margin-right:0.3rem}
+.quote-section cite{display:block;font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:1.2rem;font-style:normal}
+
+/* ── NEWSLETTER ── */
+.newsletter{background:linear-gradient(135deg,#161210 0%,#0f0d09 100%);border:1px solid var(--border-light);padding:3.5rem 2rem;text-align:center;margin:2.5rem 0}
+.newsletter h3{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:var(--cream);margin-bottom:0.5rem}
+.newsletter p{font-size:0.85rem;color:var(--muted);margin-bottom:1.8rem}
+.newsletter-form{display:flex;gap:0;max-width:460px;margin:0 auto;border:1px solid var(--border-light)}
+.newsletter-form input{flex:1;background:transparent;border:none;padding:0.9rem 1.2rem;color:var(--cream);font-family:var(--font-body);font-size:0.85rem;outline:none}
+.newsletter-form input::placeholder{color:var(--muted2)}
+.newsletter-form button{background:var(--gold);color:#0a0908;border:none;padding:0.9rem 1.5rem;font-family:var(--font-cond);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
+.newsletter-form button:hover{background:#e0bf60}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border-light);padding:3rem 2rem 2rem;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:900;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+footer .tagline{font-family:var(--font-cond);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+footer nav{display:flex;justify-content:center;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
+footer nav a{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+footer nav a:hover{color:var(--gold)}
+footer .copy{font-size:0.72rem;color:var(--muted2)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-main,.side-post,.post-card,.cat-item{animation:fadeUp .6s ease both}
+.side-post:nth-child(1){animation-delay:.1s}.side-post:nth-child(2){animation-delay:.18s}.side-post:nth-child(3){animation-delay:.26s}
+.post-card:nth-child(1){animation-delay:.15s}.post-card:nth-child(2){animation-delay:.22s}.post-card:nth-child(3){animation-delay:.29s}
+.post-card:nth-child(4){animation-delay:.36s}.post-card:nth-child(5){animation-delay:.43s}.post-card:nth-child(6){animation-delay:.50s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-side{flex-direction:row}
+  .side-post{border-right:1px solid var(--border);border-bottom:none}
+  .post-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:640px){
+  .container{padding:0 1rem}
+  .masthead{padding:0 1rem}
+  .masthead-top{flex-direction:column;gap:1rem;text-align:center}
+  .hero-side{flex-direction:column}
+  .side-post{border-right:none;border-bottom:1px solid var(--border)}
+  .post-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .newsletter-form{flex-direction:column}
+}
+@media(max-width:400px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-date">Wednesday, April 15, 2026</span>
+    <div class="masthead-logo">
+      <h1>Men's Corner</h1>
+      <p>Reclaim · Rebuild · Rise</p>
+    </div>
+    <div class="masthead-actions">
+      <button class="btn-sub">Subscribe</button>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">Mindset</a>
+    <a href="#">Fitness</a>
+    <a href="#">Finance</a>
+    <a href="#">Purpose</a>
+    <a href="#">Style</a>
+    <a href="#">Brotherhood</a>
+    <a href="#">About</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero-section">
+    <div class="hero-grid">
+
+      <div class="hero-main">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&q=80" alt="Hero"/>
+        </div>
+        <div class="content">
+          <span class="tag">💰 Financial Independence</span>
+          <h2>The 9-to-5 Was Never Designed to Make You Rich</h2>
+          <p class="excerpt">The job you show up to every day was built to make you useful, not wealthy. Once you understand the system you're operating inside, everything changes.</p>
+          <p class="meta">By Men's Corner <span>·</span> April 15, 2026 <span>·</span> 7 min read</p>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-post">
+          <div>
+            <span class="tag">🔥 Mental Toughness</span>
+            <h3>Stop Apologizing for Being Ambitious — Own Your Drive</h3>
+          </div>
+          <p class="meta">April 14, 2026 · 6 min read</p>
+        </div>
+        <div class="side-post">
+          <div>
+            <span class="tag">🧠 Purpose & Identity</span>
+            <h3>How Modern Men Lost Their Sense of Purpose and How to Take It Back</h3>
+          </div>
+          <p class="meta">April 12, 2026 · 5 min read</p>
+        </div>
+        <div class="side-post">
+          <div>
+            <span class="tag">❤️ Brotherhood</span>
+            <h3>Why Good Men Are Lonely — And What to Do About It</h3>
+          </div>
+          <p class="meta">April 10, 2026 · 4 min read</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LATEST POSTS -->
+  <div class="section-label"><h2>Latest Posts</h2></div>
+  <div class="post-grid">
+
+    <div class="post-card">
+      <span class="number">01</span>
+      <span class="tag">🔥 Mindset</span>
+      <h3>Nobody Is Coming to Save You — Stop Waiting</h3>
+      <p>The mindset shift that separates men who build from men who drift. Hard truth, practical steps.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+    <div class="post-card">
+      <span class="number">02</span>
+      <span class="tag">💪 Fitness</span>
+      <h3>The Body You Have Is a Direct Result of the Choices You Made</h3>
+      <p>No genetics. No excuses. A straight conversation about physical discipline and what it really takes.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+    <div class="post-card">
+      <span class="number">03</span>
+      <span class="tag">💰 Finance</span>
+      <h3>You're Not Broke Because of Bad Luck — Here's the Real Reason</h3>
+      <p>The uncomfortable patterns behind financial struggle — and the habits that break them for good.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+    <div class="post-card">
+      <span class="number">04</span>
+      <span class="tag">🧠 Purpose</span>
+      <h3>Stop Living the Life Someone Else Planned for You</h3>
+      <p>Your parents, your culture, your environment — all had a plan for you. Here's how to write your own.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+    <div class="post-card">
+      <span class="number">05</span>
+      <span class="tag">🏠 Leadership</span>
+      <h3>A Messy Home Is a Messy Mind: The Standard Every Man Must Set</h3>
+      <p>How you keep your space is how you keep your life. The discipline of environment.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+    <div class="post-card">
+      <span class="number">06</span>
+      <span class="tag">📖 Growth</span>
+      <h3>The Man Who Doesn't Read Is No Different From the Man Who Can't</h3>
+      <p>10 books that will rewire how you think about money, purpose, discipline and legacy.</p>
+      <span class="read-more">Read More →</span>
+    </div>
+
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="section-label"><h2>Browse Categories</h2></div>
+</div>
+
+<div class="categories-section" style="margin:0;padding:0">
+  <div class="cat-grid">
+    <div class="cat-item"><span class="icon">🔥</span><div class="name">Mental Toughness</div><div class="count">8 posts</div></div>
+    <div class="cat-item"><span class="icon">💪</span><div class="name">Physical Discipline</div><div class="count">6 posts</div></div>
+    <div class="cat-item"><span class="icon">💰</span><div class="name">Financial Independence</div><div class="count">7 posts</div></div>
+    <div class="cat-item"><span class="icon">❤️</span><div class="name">Brotherhood & Love</div><div class="count">5 posts</div></div>
+    <div class="cat-item"><span class="icon">🧠</span><div class="name">Purpose & Identity</div><div class="count">9 posts</div></div>
+    <div class="cat-item"><span class="icon">🧔</span><div class="name">Style & Presence</div><div class="count">4 posts</div></div>
+    <div class="cat-item"><span class="icon">🏠</span><div class="name">Home & Leadership</div><div class="count">5 posts</div></div>
+    <div class="cat-item"><span class="icon">📖</span><div class="name">Self-Education</div><div class="count">6 posts</div></div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote>The world needs men who want more — not out of greed, but out of a genuine desire to build, protect, provide and lead.</blockquote>
+  <cite>— Men's Corner</cite>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="container">
+  <div class="newsletter">
+    <h3>Join the Brotherhood</h3>
+    <p>Weekly posts on mindset, money, fitness and purpose. No fluff. Just signal.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address"/>
+      <button>Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Men's Corner</div>
+  <div class="tagline">Reclaim · Rebuild · Rise</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+  </nav>
+  <p class="copy">© 2026 Men's Corner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
