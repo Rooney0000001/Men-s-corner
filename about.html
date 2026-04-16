@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Men's Corner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.about-hero{background:var(--surface);border-bottom:1px solid var(--border-light);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.about-hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(200,168,75,0.08) 0%,transparent 70%);pointer-events:none}
+.about-hero .eyebrow{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.about-hero h2{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--cream);line-height:1.05;margin-bottom:1.2rem}
+.about-hero h2 em{font-style:italic;color:var(--gold)}
+.about-hero p{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);margin:3rem 0}
+.about-block{background:var(--card);padding:3rem 2.5rem}
+.about-block h3{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border-light)}
+.about-block h3 span{color:var(--gold)}
+.about-block p{font-size:0.88rem;color:#9e9080;line-height:1.85;margin-bottom:1rem}
+.about-block p:last-child{margin-bottom:0}
+
+.mission-strip{background:linear-gradient(135deg,#161210 0%,#0f0d09 100%);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:4.5rem 2rem;text-align:center;margin:0}
+.mission-strip blockquote{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2rem);font-style:italic;font-weight:700;color:var(--cream);max-width:720px;margin:0 auto;line-height:1.4}
+.mission-strip blockquote::before{content:'\201C';font-size:5rem;color:var(--gold);line-height:0;vertical-align:-1.5rem;margin-right:0.3rem}
+.mission-strip cite{display:block;font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem;font-style:normal}
+
+.pillars{padding:3rem 0}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light)}
+.pillar{background:var(--card);padding:2rem 1.5rem;text-align:center;transition:background .25s;cursor:default}
+.pillar:hover{background:var(--card-hover)}
+.pillar .icon{font-size:2rem;margin-bottom:1rem;display:block}
+.pillar h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.5rem}
+.pillar p{font-size:0.78rem;color:var(--muted);line-height:1.6}
+
+.team-section{padding:3rem 0}
+.team-card{background:var(--card);border:1px solid var(--border-light);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start;margin-bottom:1px}
+.team-avatar{width:80px;height:80px;min-width:80px;background:linear-gradient(135deg,var(--gold-dim),#2a2010);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.team-info .name{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--cream);margin-bottom:0.2rem}
+.team-info .role{font-family:var(--font-cond);font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
+.team-info p{font-size:0.85rem;color:var(--muted);line-height:1.7}
+
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);margin:1rem 0 3rem}
+.value-item{background:var(--card);padding:2rem 1.8rem;position:relative;overflow:hidden}
+.value-item::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.value-item:hover::before{transform:scaleY(1)}
+.value-item:hover{background:var(--card-hover)}
+.value-item h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.6rem}
+.value-item p{font-size:0.82rem;color:var(--muted);line-height:1.65}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.about-block,.pillar,.value-item{animation:fadeUp .55s ease both}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:1fr}
+  .team-card{flex-direction:column}
+}
+@media(max-width:560px){
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-date">Wednesday, April 15, 2026</span>
+    <div class="masthead-logo">
+      <h1><a href="index.html">Men's Corner</a></h1>
+      <p>Reclaim · Rebuild · Rise</p>
+    </div>
+    <div class="masthead-actions">
+      <button class="btn-sub">Subscribe</button>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">Mindset</a>
+    <a href="#">Fitness</a>
+    <a href="#">Finance</a>
+    <a href="#">Purpose</a>
+    <a href="#">Style</a>
+    <a href="#">Brotherhood</a>
+    <a href="about.html" class="active">About</a>
+  </nav>
+</div>
+
+<div class="about-hero">
+  <p class="eyebrow">Who We Are</p>
+  <h2>Built for Men Who<br/>Refuse to <em>Settle</em></h2>
+  <p>Men's Corner is a no-fluff publication dedicated to helping men reclaim their identity, rebuild their discipline, and rise into the version of themselves they were always meant to become.</p>
+</div>
+
+<div class="container">
+
+  <div class="about-grid">
+    <div class="about-block">
+      <h3>Our <span>Story</span></h3>
+      <p>Men's Corner was born out of frustration. Frustration with a world that was increasingly telling men to be less — less ambitious, less strong, less themselves. We looked around and saw a generation of men drifting without purpose, disconnected from what it truly means to be a man.</p>
+      <p>So we built a space that speaks directly to men. No corporate softness. No pandering. Just honest, practical, powerful writing that helps men think clearly, act decisively, and live with intention.</p>
+      <p>We write for the man in the trenches — the one building something, fighting something, or trying to figure out who he is and where he's going. That man deserves a corner of the internet that speaks his language.</p>
+    </div>
+    <div class="about-block">
+      <h3>Our <span>Mission</span></h3>
+      <p>Our mission is simple: to help men reclaim their masculinity in every area of life. Not the toxic version that gets headlines. The real version — the one rooted in responsibility, discipline, purpose and strength of character.</p>
+      <p>We believe a man who knows who he is, controls his body, builds his wealth, leads with integrity, and invests in the people around him — is one of the most powerful forces on this planet.</p>
+      <p>Every post we publish is written with one question in mind: does this help a man become better? If the answer is yes, we write it. If the answer is no, we leave it out. That's the Men's Corner standard.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="mission-strip">
+  <blockquote>The world doesn't need more passive men. It needs men who are awake, disciplined, purposeful — and unashamed of every single one of those things.</blockquote>
+  <cite>— Men's Corner</cite>
+</div>
+
+<div class="container">
+
+  <div class="section-label"><h2>What We Cover</h2></div>
+  <div class="pillars">
+    <div class="pillars-grid">
+      <div class="pillar"><span class="icon">🔥</span><h4>Mental Toughness</h4><p>Building the mindset that doesn't crack under pressure.</p></div>
+      <div class="pillar"><span class="icon">💪</span><h4>Physical Discipline</h4><p>Training the body as a reflection of your values.</p></div>
+      <div class="pillar"><span class="icon">💰</span><h4>Financial Independence</h4><p>Earning, building and owning your financial future.</p></div>
+      <div class="pillar"><span class="icon">🧠</span><h4>Purpose & Identity</h4><p>Finding your mission and owning it completely.</p></div>
+      <div class="pillar"><span class="icon">❤️</span><h4>Brotherhood & Love</h4><p>Leading in relationships and investing in brotherhood.</p></div>
+      <div class="pillar"><span class="icon">🧔</span><h4>Style & Presence</h4><p>Presenting yourself with intention and authority.</p></div>
+      <div class="pillar"><span class="icon">🏠</span><h4>Home & Leadership</h4><p>Leading your space and the people who matter most.</p></div>
+      <div class="pillar"><span class="icon">📖</span><h4>Self-Education</h4><p>Never stopping — ever. The reading and learning life.</p></div>
+    </div>
+  </div>
+
+  <div class="section-label"><h2>The Team</h2></div>
+  <div class="team-section">
+    <div class="team-card">
+      <div class="team-avatar">⚔️</div>
+      <div class="team-info">
+        <div class="name">Men's Corner Team</div>
+        <div class="role">Writers · Editors · Thinkers</div>
+        <p>We're a team of men who have lived through the struggle of figuring out who we are and what we stand for in a world that offers every distraction and very little direction. We write what we wish someone had told us earlier — so you don't have to figure it out alone.</p>
+        <p>Every post is researched, lived in, and written to actually help — not to chase clicks or feed algorithms. We're in this for the long game. Just like you should be.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label"><h2>What We Stand For</h2></div>
+  <div class="values-grid">
+    <div class="value-item">
+      <h4>Radical Honesty</h4>
+      <p>We say what needs to be said, even when it's uncomfortable. Men don't need soft truths. They need real ones delivered with respect.</p>
+    </div>
+    <div class="value-item">
+      <h4>No Victimhood</h4>
+      <p>We don't write for men who want to be victims. We write for men who want to take ownership of their lives regardless of circumstances.</p>
+    </div>
+    <div class="value-item">
+      <h4>Practical Over Theoretical</h4>
+      <p>Every piece of advice on this site is actionable. We're not interested in ideas that sound good. We're interested in things that actually work.</p>
+    </div>
+    <div class="value-item">
+      <h4>Long-Term Thinking</h4>
+      <p>Quick fixes don't build men. We write for the man playing the long game — in his health, his wealth, his relationships and his character.</p>
+    </div>
+    <div class="value-item">
+      <h4>Brotherhood First</h4>
+      <p>We believe men are stronger together. This site is a community, not just a publication. Pull up a chair. You belong here.</p>
+    </div>
+    <div class="value-item">
+      <h4>Excellence Always</h4>
+      <p>Every word on this site is written to a standard. We don't publish filler. If it doesn't make a man better in some way, it doesn't go live.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="logo">Men's Corner</div>
+  <div class="tagline">Reclaim · Rebuild · Rise</div>
+  <nav class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#">Privacy</a>
+  </nav>
+  <p class="copy">© 2026 Men's Corner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

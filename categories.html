@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Categories — Men's Corner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0908;--surface:#111009;--card:#141210;--border:#222018;--border-light:#2e2a22;
+  --gold:#c8a84b;--gold-dim:#7a6428;--gold-glow:rgba(200,168,75,0.12);
+  --cream:#ede8dc;--muted:#6b6355;--muted2:#4a4438;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-cond:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+.ticker{background:var(--gold);color:#0a0908;font-family:var(--font-cond);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.45rem 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:ticker 30s linear infinite}
+.ticker-inner span{margin:0 3rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.masthead{border-bottom:1px solid var(--border-light);padding:0 2rem}
+.masthead-top{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.masthead-date{font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase}
+.masthead-logo h1{font-family:var(--font-display);font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;letter-spacing:0.05em;text-transform:uppercase;color:var(--cream);line-height:1;text-align:center}
+.masthead-logo p{font-family:var(--font-cond);font-size:0.65rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-top:0.3rem;text-align:center}
+.btn-sub{background:var(--gold);color:#0a0908;font-family:var(--font-cond);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.5rem 1.2rem;border:none;cursor:pointer}
+.nav{display:flex;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:var(--font-cond);font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:0.9rem 1.2rem;border-right:1px solid var(--border);white-space:nowrap;transition:color .2s,background .2s}
+.nav a:first-child{border-left:1px solid var(--border)}
+.nav a:hover,.nav a.active{color:var(--gold);background:var(--gold-glow)}
+
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+.page-header{padding:4rem 0 3rem;text-align:center;border-bottom:1px solid var(--border)}
+.page-header .eyebrow{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
+.page-header h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--cream);line-height:1.05}
+.page-header h2 em{font-style:italic;color:var(--gold)}
+.page-header p{color:var(--muted);font-size:0.9rem;max-width:480px;margin:1rem auto 0;line-height:1.7}
+
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-light);margin:3rem 0}
+.cat-card{background:var(--card);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s;cursor:pointer}
+.cat-card:hover{background:#1a1610}
+.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold),transparent 60%);opacity:0;transition:opacity .35s}
+.cat-card:hover::after{opacity:0.05}
+.cat-card .big-num{font-family:var(--font-display);font-size:6rem;font-weight:900;color:var(--border);position:absolute;top:-0.5rem;right:1.5rem;line-height:1;transition:color .3s;user-select:none}
+.cat-card:hover .big-num{color:#252018}
+.cat-card .icon{font-size:2.2rem;margin-bottom:1rem;display:block}
+.cat-card .tag{font-family:var(--font-cond);font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.5rem;display:block;transition:color .2s}
+.cat-card:hover .tag{color:var(--gold)}
+.cat-card h3{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:0.7rem;line-height:1.2}
+.cat-card .desc{font-size:0.83rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;max-width:380px}
+.divider{height:1px;background:var(--border-light);margin-bottom:1.2rem}
+.cat-card .post-preview strong{font-family:var(--font-display);font-size:0.95rem;color:var(--cream);display:block;margin-bottom:0.25rem}
+.cat-card .post-preview span{font-size:0.78rem;color:var(--muted)}
+.cat-card .arrow{display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.2rem;font-family:var(--font-cond);font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);transition:color .25s,gap .25s}
+.cat-card:hover .arrow{color:var(--gold);gap:0.8rem}
+
+footer{border-top:1px solid var(--border-light);padding:3rem 2rem 2rem;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:900;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem}
+footer .tagline{font-family:var(--font-cond);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+footer nav{display:flex;justify-content:center;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
+footer nav a{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+footer nav a:hover{color:var(--gold)}
+footer .copy{font-size:0.72rem;color:var(--muted2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.cat-card{animation:fadeUp .55s ease both}
+.cat-card:nth-child(1){animation-delay:.05s}.cat-card:nth-child(2){animation-delay:.13s}
+.cat-card:nth-child(3){animation-delay:.21s}.cat-card:nth-child(4){animation-delay:.29s}
+.cat-card:nth-child(5){animation-delay:.37s}.cat-card:nth-child(6){animation-delay:.45s}
+.cat-card:nth-child(7){animation-delay:.53s}.cat-card:nth-child(8){animation-delay:.61s}
+
+@media(max-width:768px){
+  .cat-grid{grid-template-columns:1fr}
+  .masthead-top{flex-direction:column;gap:1rem;text-align:center}
+  .container{padding:0 1rem}
+  .masthead{padding:0 1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-date">Wednesday, April 15, 2026</span>
+    <div class="masthead-logo">
+      <h1>Men's Corner</h1>
+      <p>Reclaim · Rebuild · Rise</p>
+    </div>
+    <button class="btn-sub">Subscribe</button>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html" class="active">Categories</a>
+    <a href="#">Mindset</a>
+    <a href="#">Fitness</a>
+    <a href="#">Finance</a>
+    <a href="#">Purpose</a>
+    <a href="#">Style</a>
+    <a href="#">Brotherhood</a>
+    <a href="#">About</a>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <p class="eyebrow">Explore the Pillars</p>
+    <h2>Eight Domains.<br/>One <em>Mission.</em></h2>
+    <p>Everything a man needs to rebuild, refocus and rise — organized into the pillars that matter most.</p>
+  </div>
+
+  <div class="cat-grid">
+
+    <div class="cat-card">
+      <span class="big-num">01</span>
+      <span class="icon">🔥</span>
+      <span class="tag">Mindset</span>
+      <h3>Mental Toughness</h3>
+      <p class="desc">Forge an unshakeable mind. Discipline, resilience and the psychology of high-performing men who refuse to break under pressure.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>Stop Apologizing for Being Ambitious</strong>
+        <span>Own your drive and silence the noise around you.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">02</span>
+      <span class="icon">💪</span>
+      <span class="tag">Fitness</span>
+      <h3>Physical Discipline</h3>
+      <p class="desc">Train hard, recover smart. Strength isn't built in the gym alone — it's built in the daily choices no one else sees.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>The 5 AM Warrior</strong>
+        <span>Why your morning workout changes absolutely everything.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">03</span>
+      <span class="icon">💰</span>
+      <span class="tag">Wealth</span>
+      <h3>Financial Independence</h3>
+      <p class="desc">Money is a tool. Learn to earn, save, invest and build generational wealth from the ground up — starting exactly where you are.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>The 9-to-5 Was Never Designed to Make You Rich</strong>
+        <span>Understanding the system you're operating inside.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">04</span>
+      <span class="icon">❤️</span>
+      <span class="tag">Relationships</span>
+      <h3>Brotherhood & Love</h3>
+      <p class="desc">Lead in relationships. Invest in brotherhood. Real men build real bonds — and understand the difference between love and dependence.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>Why Good Men Are Lonely</strong>
+        <span>And the honest steps to fix it before it gets worse.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">05</span>
+      <span class="icon">🧠</span>
+      <span class="tag">Identity</span>
+      <h3>Purpose & Self</h3>
+      <p class="desc">A man without purpose drifts. Find your mission, own your identity and build a legacy that outlasts the noise of the everyday.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>How Men Lost Their Sense of Purpose</strong>
+        <span>And exactly how to take it back starting today.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">06</span>
+      <span class="icon">🧔</span>
+      <span class="tag">Style</span>
+      <h3>Presence & Style</h3>
+      <p class="desc">First impressions are currency. Dress with intention, carry yourself with authority, and command the room before you speak a word.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>Dress With Intention</strong>
+        <span>Why what you wear is a direct signal of who you are.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">07</span>
+      <span class="icon">🏠</span>
+      <span class="tag">Leadership</span>
+      <h3>Home & Household</h3>
+      <p class="desc">Your home is a reflection of your discipline. Lead your space, set the standard, and be the calm at the center of your household.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>A Man's Home Is His Kingdom</strong>
+        <span>Set the standard every man in your space will follow.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+    <div class="cat-card">
+      <span class="big-num">08</span>
+      <span class="icon">📖</span>
+      <span class="tag">Growth</span>
+      <h3>Self-Education</h3>
+      <p class="desc">The man who reads leads. Curated books, learning paths and strategies for men who refuse to stop growing — ever.</p>
+      <div class="divider"></div>
+      <div class="post-preview">
+        <strong>10 Books Every Man Should Read Before 35</strong>
+        <span>The reading list that will rewire how you think.</span>
+      </div>
+      <span class="arrow">Explore Category →</span>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Men's Corner</div>
+  <div class="tagline">Reclaim · Rebuild · Rise</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+  </nav>
+  <p class="copy">© 2026 Men's Corner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Men's Corner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.page-hero{padding:5rem 2rem 4rem;text-align:center;border-bottom:1px solid var(--border-light);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(200,168,75,0.07) 0%,transparent 65%);pointer-events:none}
+.page-hero .eyebrow{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.page-hero h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--cream);line-height:1.05;margin-bottom:1rem}
+.page-hero h2 em{font-style:italic;color:var(--gold)}
+.page-hero p{font-size:0.92rem;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.8}
+
+.contact-layout{display:grid;grid-template-columns:1fr 380px;gap:4rem;padding:4rem 0}
+
+/* FORM */
+.contact-form h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:0.5rem}
+.contact-form .sub{font-size:0.85rem;color:var(--muted);margin-bottom:2rem;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;margin-bottom:1rem}
+.form-group label{font-family:var(--font-cond);font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.form-group input,.form-group textarea,.form-group select{background:var(--card);border:1px solid var(--border-light);color:var(--cream);font-family:var(--font-body);font-size:0.88rem;padding:0.85rem 1rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted2)}
+.form-group textarea{resize:vertical;min-height:140px}
+.form-group select option{background:var(--card)}
+.form-submit{background:var(--gold);color:#0a0908;font-family:var(--font-cond);font-size:0.75rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;padding:1rem 2.5rem;border:none;cursor:pointer;transition:background .2s;width:100%;margin-top:0.5rem}
+.form-submit:hover{background:#e0bf60}
+.form-note{font-size:0.75rem;color:var(--muted2);margin-top:0.8rem;text-align:center}
+
+/* SIDEBAR INFO */
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.info-card{background:var(--card);border:1px solid var(--border-light);padding:1.8rem}
+.info-card .icon{font-size:1.6rem;margin-bottom:0.8rem;display:block}
+.info-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.5rem}
+.info-card p{font-size:0.82rem;color:var(--muted);line-height:1.65}
+.info-card a{color:var(--gold)}
+
+.social-row{display:flex;gap:0.6rem;margin-top:0.8rem;flex-wrap:wrap}
+.social-btn{background:var(--surface);border:1px solid var(--border-light);font-family:var(--font-cond);font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.5rem 1rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.social-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+.faq-section{padding:3rem 0}
+.faq-item{border-bottom:1px solid var(--border-light);padding:1.5rem 0;cursor:pointer}
+.faq-item:first-child{border-top:1px solid var(--border-light)}
+.faq-q{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-q span{color:var(--gold);font-size:1.2rem;font-style:normal;min-width:20px;text-align:right}
+.faq-a{font-size:0.85rem;color:var(--muted);line-height:1.75;margin-top:0.8rem;max-width:680px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.contact-form,.info-card{animation:fadeUp .55s ease both}
+.info-card:nth-child(2){animation-delay:.1s}.info-card:nth-child(3){animation-delay:.2s}
+
+@media(max-width:900px){
+  .contact-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-date">Wednesday, April 15, 2026</span>
+    <div class="masthead-logo">
+      <h1><a href="index.html">Men's Corner</a></h1>
+      <p>Reclaim · Rebuild · Rise</p>
+    </div>
+    <div class="masthead-actions">
+      <button class="btn-sub">Subscribe</button>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">Mindset</a>
+    <a href="#">Fitness</a>
+    <a href="#">Finance</a>
+    <a href="#">Purpose</a>
+    <a href="#">Style</a>
+    <a href="#">Brotherhood</a>
+    <a href="about.html">About</a>
+  </nav>
+</div>
+
+<div class="page-hero">
+  <p class="eyebrow">Get In Touch</p>
+  <h2>Let's <em>Connect</em></h2>
+  <p>Got a question, a story idea, or want to collaborate? The Men's Corner team reads every message. Reach out — we'll get back to you.</p>
+</div>
+
+<div class="container">
+  <div class="contact-layout">
+
+    <!-- FORM -->
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <p class="sub">Whether it's feedback, a guest post pitch, a collaboration idea, or just a message — we're listening.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="john@example.com"/>
+      </div>
+
+      <div class="form-group">
+        <label>Subject</label>
+        <select>
+          <option value="" disabled selected>Select a topic</option>
+          <option>General Enquiry</option>
+          <option>Guest Post Pitch</option>
+          <option>Collaboration / Partnership</option>
+          <option>Feedback</option>
+          <option>Report an Issue</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Write your message here..."></textarea>
+      </div>
+
+      <button class="form-submit" onclick="this.textContent='Message Sent ✓';this.style.background='#3a6e3a';setTimeout(()=>{this.textContent='Send Message';this.style.background=''},3000)">Send Message</button>
+      <p class="form-note">We typically respond within 24–48 hours.</p>
+    </div>
+
+    <!-- INFO -->
+    <div class="contact-info">
+
+      <div class="info-card">
+        <span class="icon">📬</span>
+        <h4>Email Us</h4>
+        <p>For all general enquiries and collaborations reach us at <a href="mailto:team@menscorner.com">team@menscorner.com</a></p>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">✍️</span>
+        <h4>Write for Us</h4>
+        <p>Are you a man with a story, a lesson, or expertise worth sharing? We accept guest posts that align with our mission. Pitch us your idea and we'll review it within 5 business days.</p>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">🤝</span>
+        <h4>Partnerships</h4>
+        <p>We partner with brands and creators whose values align with ours — discipline, growth, and authenticity. No deals that compromise our editorial integrity.</p>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">📲</span>
+        <h4>Follow the Movement</h4>
+        <p>Stay connected and never miss a post.</p>
+        <div class="social-row">
+          <button class="social-btn">Instagram</button>
+          <button class="social-btn">Twitter/X</button>
+          <button class="social-btn">YouTube</button>
+          <button class="social-btn">TikTok</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-label"><h2>Frequently Asked Questions</h2></div>
+  <div class="faq-section">
+    <div class="faq-item">
+      <div class="faq-q">How often do you publish new posts? <span>+</span></div>
+      <div class="faq-a">We publish new posts every week — typically 2 to 3 per week across our eight categories. Subscribe to the newsletter to get each one delivered directly to your inbox.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I submit a guest post? <span>+</span></div>
+      <div class="faq-a">Yes. We welcome guest contributions from men who have genuine experience, insight, or lessons to share. Use the contact form above and select "Guest Post Pitch" as the subject. Include a brief outline of your idea.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is Men's Corner free to read? <span>+</span></div>
+      <div class="faq-a">Every post on Men's Corner is completely free. We believe access to this kind of content shouldn't be locked behind a paywall. A newsletter subscription is optional and also free.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you take advertising? <span>+</span></div>
+      <div class="faq-a">We are selective about partnerships. We only work with brands whose products or values genuinely align with our audience. We will never promote something we don't believe in.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Men's Corner</div>
+  <div class="tagline">Reclaim · Rebuild · Rise</div>
+  <nav class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#">Privacy</a>
+  </nav>
+  <p class="copy">© 2026 Men's Corner. All rights reserved.</p>
+</footer>
+
+<script>
+// Simple FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const a=item.querySelector('.faq-a');
+    const s=item.querySelector('.faq-q span');
+    const open=a.style.display==='block';
+    document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+    document.querySelectorAll('.faq-q span').forEach(x=>x.textContent='+');
+    if(!open){a.style.display='block';s.textContent='−'}
+  });
+});
+document.querySelectorAll('.faq-a').forEach(a=>a.style.display='none');
+</script>
+</body>
+</html>

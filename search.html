@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Search — Men's Corner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.search-hero{padding:4rem 2rem 3rem;text-align:center;border-bottom:1px solid var(--border-light)}
+.search-hero .eyebrow{font-family:var(--font-cond);font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.search-hero h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--cream);margin-bottom:2rem}
+.search-hero h2 em{font-style:italic;color:var(--gold)}
+
+.search-bar{display:flex;max-width:680px;margin:0 auto;border:1px solid var(--border-light);transition:border-color .2s}
+.search-bar:focus-within{border-color:var(--gold)}
+.search-bar input{flex:1;background:transparent;border:none;padding:1rem 1.4rem;color:var(--cream);font-family:var(--font-body);font-size:1rem;outline:none}
+.search-bar input::placeholder{color:var(--muted2)}
+.search-bar button{background:var(--gold);border:none;padding:0 1.6rem;font-family:var(--font-cond);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0a0908;cursor:pointer;transition:background .2s;white-space:nowrap}
+.search-bar button:hover{background:#e0bf60}
+
+.filter-row{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.filter-btn{background:transparent;border:1px solid var(--border-light);font-family:var(--font-cond);font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.45rem 1rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-glow)}
+
+.search-container{padding:3rem 0}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:gap}
+.results-count{font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.results-count span{color:var(--gold)}
+
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light)}
+.result-card{background:var(--card);padding:1.8rem;transition:background .25s;cursor:pointer;position:relative;overflow:hidden}
+.result-card::before{content:'';position:absolute;left:0;top:0;width:2px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.result-card:hover{background:var(--card-hover)}
+.result-card:hover::before{transform:scaleY(1)}
+.result-card .tag{font-family:var(--font-cond);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.6rem;display:block;transition:color .2s}
+.result-card:hover .tag{color:var(--gold)}
+.result-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:0.6rem}
+.result-card p{font-size:0.8rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.result-card .meta{font-family:var(--font-cond);font-size:0.6rem;color:var(--muted2);letter-spacing:0.12em;text-transform:uppercase}
+.result-card .read-more{font-family:var(--font-cond);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-top:0.8rem;transition:color .2s,letter-spacing .2s}
+.result-card:hover .read-more{color:var(--gold);letter-spacing:0.28em}
+
+.highlight{background:rgba(200,168,75,0.2);color:var(--gold);padding:0 2px}
+
+.no-results{text-align:center;padding:5rem 2rem;color:var(--muted)}
+.no-results .icon{font-size:3rem;margin-bottom:1rem;display:block}
+.no-results h3{font-family:var(--font-display);font-size:1.4rem;color:var(--cream);margin-bottom:0.8rem}
+.no-results p{font-size:0.88rem;line-height:1.7}
+
+.popular-section{padding:2rem 0 1rem}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.result-card{animation:fadeUp .45s ease both}
+
+@media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.results-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+    <span>🔥 New Post: Stop Apologizing for Being Ambitious</span>
+    <span>💰 The 9-to-5 Was Never Designed to Make You Rich</span>
+    <span>💪 Train Hard. Recover Smart. Rise Daily.</span>
+    <span>🧠 Know Your Purpose. Own Your Path.</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-date">Wednesday, April 15, 2026</span>
+    <div class="masthead-logo">
+      <h1><a href="index.html">Men's Corner</a></h1>
+      <p>Reclaim · Rebuild · Rise</p>
+    </div>
+    <div class="masthead-actions">
+      <button class="btn-sub">Subscribe</button>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">Mindset</a>
+    <a href="#">Fitness</a>
+    <a href="#">Finance</a>
+    <a href="#">Purpose</a>
+    <a href="#">Style</a>
+    <a href="#">Brotherhood</a>
+    <a href="about.html">About</a>
+  </nav>
+</div>
+
+<div class="search-hero">
+  <p class="eyebrow">Search</p>
+  <h2>Find What You <em>Need</em></h2>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search posts, topics, categories..." oninput="handleSearch(this.value)"/>
+    <button onclick="handleSearch(document.getElementById('searchInput').value)">Search</button>
+  </div>
+  <div class="filter-row" id="filterRow">
+    <button class="filter-btn active" onclick="filterBy('all',this)">All</button>
+    <button class="filter-btn" onclick="filterBy('Mindset',this)">🔥 Mindset</button>
+    <button class="filter-btn" onclick="filterBy('Fitness',this)">💪 Fitness</button>
+    <button class="filter-btn" onclick="filterBy('Finance',this)">💰 Finance</button>
+    <button class="filter-btn" onclick="filterBy('Purpose',this)">🧠 Purpose</button>
+    <button class="filter-btn" onclick="filterBy('Style',this)">🧔 Style</button>
+    <button class="filter-btn" onclick="filterBy('Brotherhood',this)">❤️ Brotherhood</button>
+    <button class="filter-btn" onclick="filterBy('Leadership',this)">🏠 Leadership</button>
+    <button class="filter-btn" onclick="filterBy('Growth',this)">📖 Growth</button>
+  </div>
+</div>
+
+<div class="container search-container">
+  <div class="results-header">
+    <div class="results-count" id="resultsCount">Showing <span id="countNum">12</span> posts</div>
+  </div>
+  <div class="results-grid" id="resultsGrid"></div>
+  <div id="noResults" class="no-results" style="display:none">
+    <span class="icon">🔍</span>
+    <h3>No posts found</h3>
+    <p>Try a different search term or browse by category above.</p>
+  </div>
+
+  <div class="popular-section">
+    <div class="section-label"><h2>Popular Right Now</h2></div>
+  </div>
+  <div class="results-grid" id="popularGrid"></div>
+</div>
+
+<footer>
+  <div class="logo">Men's Corner</div>
+  <div class="tagline">Reclaim · Rebuild · Rise</div>
+  <nav class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#">Privacy</a>
+  </nav>
+  <p class="copy">© 2026 Men's Corner. All rights reserved.</p>
+</footer>
+
+<script>
+const posts = [
+  {tag:'💰 Finance',category:'Finance',title:'The 9-to-5 Was Never Designed to Make You Rich',excerpt:'The job you show up to every day was built to make you useful, not wealthy. Once you understand the system, everything changes.',date:'Apr 15, 2026',read:'7 min',url:'post.html'},
+  {tag:'🔥 Mindset',category:'Mindset',title:'Stop Apologizing for Being Ambitious — Own Your Drive',excerpt:'Ambition has become a dirty word. This post is about reclaiming it without guilt or apology.',date:'Apr 14, 2026',read:'6 min',url:'post.html'},
+  {tag:'🧠 Purpose',category:'Purpose',title:'How Modern Men Lost Their Sense of Purpose',excerpt:'A generation of men drifting without direction. Here\'s why it happened and exactly how to take it back.',date:'Apr 12, 2026',read:'5 min',url:'post.html'},
+  {tag:'❤️ Brotherhood',category:'Brotherhood',title:'Why Good Men Are Lonely — And What to Do About It',excerpt:'The loneliness epidemic among men is real. Here\'s an honest look at why and what you can actually do.',date:'Apr 10, 2026',read:'4 min',url:'post.html'},
+  {tag:'💪 Fitness',category:'Fitness',title:'The 5 AM Warrior: Why Your Morning Workout Changes Everything',excerpt:'Train before the world wakes up and you\'ll move through your day differently. Here\'s the science and the strategy.',date:'Apr 8, 2026',read:'5 min',url:'post.html'},
+  {tag:'🔥 Mindset',category:'Mindset',title:'Nobody Is Coming to Save You — Stop Waiting',excerpt:'The mindset shift that separates men who build from men who drift. Hard truth, practical steps.',date:'Apr 5, 2026',read:'5 min',url:'post.html'},
+  {tag:'💰 Finance',category:'Finance',title:"You're Not Broke Because of Bad Luck — Here's the Real Reason",excerpt:'The uncomfortable patterns behind financial struggle and the habits that break them for good.',date:'Apr 3, 2026',read:'6 min',url:'post.html'},
+  {tag:'🧠 Purpose',category:'Purpose',title:'Stop Living the Life Someone Else Planned for You',excerpt:'Your parents, your culture, your environment — all had a plan for you. Here\'s how to write your own.',date:'Apr 1, 2026',read:'6 min',url:'post.html'},
+  {tag:'🏠 Leadership',category:'Leadership',title:"A Messy Home Is a Messy Mind: The Standard Every Man Must Set",excerpt:'How you keep your space is how you keep your life. The discipline of environment explained.',date:'Mar 29, 2026',read:'4 min',url:'post.html'},
+  {tag:'📖 Growth',category:'Growth',title:"The Man Who Doesn't Read Is No Different From the Man Who Can't",excerpt:'10 books that will rewire how you think about money, purpose, discipline and legacy.',date:'Mar 27, 2026',read:'7 min',url:'post.html'},
+  {tag:'🧔 Style',category:'Style',title:'Dress With Intention: Why What You Wear Signals Who You Are',excerpt:'First impressions are currency. Learn to dress with authority and command the room before you speak.',date:'Mar 25, 2026',read:'5 min',url:'post.html'},
+  {tag:'💪 Fitness',category:'Fitness',title:'Train Angry: How to Use Your Frustration as Fuel',excerpt:'Redirected anger is one of the most powerful performance tools a man has. Here\'s how to use it.',date:'Mar 23, 2026',read:'4 min',url:'post.html'},
+];
+
+let currentFilter = 'all';
+let currentQuery = '';
+
+function renderCards(list, containerId, query=''){
+  const grid = document.getElementById(containerId);
+  if(!list.length){
+    grid.innerHTML='';
+    if(containerId==='resultsGrid') document.getElementById('noResults').style.display='block';
+    return;
+  }
+  if(containerId==='resultsGrid') document.getElementById('noResults').style.display='none';
+  grid.innerHTML = list.map((p,i)=>{
+    const title = query ? p.title.replace(new RegExp(query,'gi'), m=>`<span class="highlight">${m}</span>`) : p.title;
+    return `<div class="result-card" style="animation-delay:${i*0.07}s" onclick="location.href='${p.url}'">
+      <span class="tag">${p.tag}</span>
+      <h3>${title}</h3>
+      <p>${p.excerpt}</p>
+      <div class="meta">${p.date} · ${p.read} read</div>
+      <span class="read-more">Read More →</span>
+    </div>`;
+  }).join('');
+}
+
+function updateCount(n){
+  document.getElementById('countNum').textContent = n;
+}
+
+function filterBy(cat, btn){
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function handleSearch(val){
+  currentQuery = val.trim().toLowerCase();
+  applyFilters();
+}
+
+function applyFilters(){
+  let filtered = posts;
+  if(currentFilter !== 'all') filtered = filtered.filter(p=>p.category===currentFilter);
+  if(currentQuery) filtered = filtered.filter(p=>
+    p.title.toLowerCase().includes(currentQuery) ||
+    p.excerpt.toLowerCase().includes(currentQuery) ||
+    p.tag.toLowerCase().includes(currentQuery)
+  );
+  updateCount(filtered.length);
+  renderCards(filtered,'resultsGrid',currentQuery);
+}
+
+// Init
+renderCards(posts,'resultsGrid');
+updateCount(posts.length);
+// Popular = top 3
+renderCards(posts.slice(0,3),'popularGrid');
+</script>
+</body>
+</html>
